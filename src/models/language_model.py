@@ -1,3 +1,4 @@
+import random
 from models.abstract_model import AbstractModel
 from database.db import db
 
@@ -14,3 +15,8 @@ class LanguageModel(AbstractModel):
             "name": self.data.get("name"),
             "acronym": self.data.get("acronym"),
         }
+
+    @classmethod
+    def list_dicts(cls):
+        data = cls.find()
+        return [item.to_dict() for item in data]
