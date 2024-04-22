@@ -8,3 +8,9 @@ class LanguageModel(AbstractModel):
     def __init__(self, data):
         super().__init__(data)
         self._collection = db["languages"]
+
+    def to_dict(self):
+        return {
+            "name": self.data.get("name"),
+            "acronym": self.data.get("acronym"),
+        }
